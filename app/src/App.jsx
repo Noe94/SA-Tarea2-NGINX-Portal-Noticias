@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route, Link, useParams, Navigate } from 'react-router-dom'
 import { noticias } from './data/noticias'
 import './App.css'
@@ -23,6 +24,32 @@ function Header() {
   )
 }
 
+function InstanceStatus() {
+  const [instancia, setInstancia] = useState('Consultando...')
+
+  useEffect(() => {
+    fetch('/instancia', { cache: 'no-store' })
+      .then((response) => {
+        if (!response.ok) throw new Error('No disponible')
+        return response.text()
+      })
+      .then((data) => setInstancia(data.trim().toUpperCase()))
+      .catch(() => setInstancia('NO DISPONIBLE'))
+  }, [])
+
+  return (
+    <div className="instance-status">
+      <span className="instance-dot"></span>
+      <div>
+        <strong>Balanceador activo</strong>
+        <p>
+          Instancia que respondió: <b>{instancia}</b>
+        </p>
+      </div>
+    </div>
+  )
+}
+
 function Footer() {
   return (
     <footer className="footer">
@@ -39,6 +66,8 @@ function Footer() {
             exclusivamente con fines académicos. No constituyen información periodística verificada.
           </p>
         </div>
+
+        <InstanceStatus />
       </div>
     </footer>
   )

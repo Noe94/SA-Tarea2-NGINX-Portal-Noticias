@@ -433,3 +433,39 @@
     gap: 6px;
   }
 }
+
+.instance-status {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 220px;
+  padding: 13px 15px;
+  border: 1px solid rgba(122, 167, 255, 0.2);
+  border-radius: 12px;
+  background: rgba(79, 140, 255, 0.07);
+}
+
+.instance-dot {
+  flex: 0 0 9px;
+  width: 9px;
+  height: 9px;
+  margin-top: 5px;
+  border-radius: 50%;
+  background: #44d17a;
+  box-shadow: 0 0 10px rgba(68, 209, 122, 0.75);
+}
+
+.instance-status strong {
+  color: #cfe0ff;
+  font-size: 0.82rem;
+}
+
+.instance-status p {
+  margin: 4px 0 0;
+  font-size: 0.78rem;
+}
+
+.instance-status b {
+  color: #8eb7ff;
+}
+
