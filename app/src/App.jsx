@@ -43,7 +43,7 @@ function InstanceStatus() {
       <div>
         <strong>Balanceador activo</strong>
         <p>
-          Instancia que respondió: <b>{instancia}</b>
+          Instancia que respondió la verificación: <b>{instancia}</b>
         </p>
       </div>
     </div>
